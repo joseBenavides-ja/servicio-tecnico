@@ -1,0 +1,484 @@
+/* Ajustes generales */
+* { box-sizing: border-box; }
+
+/* Fuente base */
+:root { font-family: system-ui, Arial, sans-serif; }
+
+/* Contenedor centrado */
+.container {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+/* Cabecera con título y badges */
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.h1 { margin: 0; }
+.h2 { margin: 0; }
+
+/* Etiquetas tipo "badge" */
+.badge {
+  padding: 4px 10px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Tarjetas para separar secciones */
+.card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+/* Grid 12 columnas para formulario */
+.grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col-12 { grid-column: span 12; }
+.col-6  { grid-column: span 6; }
+.col-5  { grid-column: span 5; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
+.col-2  { grid-column: span 2; }
+
+/* En pantallas pequeñas, todo a una columna */
+@media (max-width: 900px) {
+  .col-12, .col-6, .col-5, .col-4, .col-3, .col-2 { grid-column: span 12; }
+}
+
+/* Labels y campos */
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #193D6D;
+  box-shadow: 0 0 0 2px rgba(25, 61, 109, 0.1);
+}
+
+textarea { min-height: 90px; resize: vertical; }
+
+/* Filas de botones y controles */
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.spaceBetween { justify-content: space-between; }
+
+/* Botones */
+button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+button.primary { border-color: #222; }
+
+button.danger {
+  border-color: #b00020;
+  color: #b00020;
+}
+
+/* Tabla */
+.tableWrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Textos */
+.muted { opacity: 0.7; }
+
+/* "Pills" para prioridad/estado */
+.pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+
+.search { min-width: 260px; }
+
+/* Helpers */
+.mt10 { margin-top: 10px; }
+.mt12 { margin-top: 12px; }
+
+/* Error */
+.error { color: #b00020; margin-top: 10px; }
+/* ===== AUTENTICACIÓN ===== */
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #193D6D 0%, #1e5a96 100%);
+  padding: 16px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.auth-card h1 {
+  text-align: center;
+  color: #193D6D;
+  margin-bottom: 32px;
+  font-size: 28px;
+}
+
+.auth-card h2 {
+  margin-bottom: 24px;
+  color: #193D6D;
+  font-size: 20px;
+}
+
+.auth-card form label {
+  margin-bottom: 16px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.auth-card input:focus {
+  border-color: #193D6D;
+  box-shadow: 0 0 0 3px rgba(25, 61, 109, 0.1);
+}
+
+.auth-card button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #193D6D;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 0.3s;
+}
+
+.auth-card button[type="submit"]:hover:not(:disabled) {
+  background: #1a4a7d;
+}
+
+.auth-card button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-toggle {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #193D6D;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0;
+  font: inherit;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.logo-preview {
+  text-align: center;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px dashed #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.logo-preview img {
+  max-width: 100px;
+  max-height: 100px;
+  display: block;
+  margin: 0 auto 8px;
+  border-radius: 4px;
+}
+
+.logo-preview p {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+/* ===== PERFIL DE USUARIO ===== */
+
+.user-profile {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
+  padding: 4px;
+  border: 1px solid #ddd;
+}
+
+.user-logo-placeholder {
+  width: 60px;
+  height: 60px;
+  background: #193D6D;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #193D6D;
+}
+
+.user-info p {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.user-menu-btn {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.user-menu-btn:hover {
+  background: #e8e8e8;
+}
+
+.user-dropdown {
+  margin-top: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-details {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-details p {
+  font-size: 13px;
+  margin: 6px 0;
+  color: #333;
+}
+
+.user-details strong {
+  color: #193D6D;
+}
+
+.btn-danger {
+  width: 100%;
+  padding: 10px;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-danger:hover {
+  background: #b71c1c;
+}
+
+.btn-primary {
+  padding: 10px 14px;
+  background: #193D6D;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+  flex: 1;
+}
+
+.btn-primary:hover {
+  background: #1a4a7d;
+}
+
+.btn-secondary {
+  padding: 10px 14px;
+  background: #999;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+  flex: 1;
+}
+
+.btn-secondary:hover {
+  background: #777;
+}
+
+/* Formulario de edición de perfil */
+.user-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.user-edit-form h4 {
+  margin: 0 0 8px 0;
+  color: #193D6D;
+  font-size: 14px;
+}
+
+.user-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-edit-form input,
+.user-edit-form textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.user-edit-form input:focus,
+.user-edit-form textarea:focus {
+  border-color: #193D6D;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(25, 61, 109, 0.1);
+}
+
+.user-edit-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.h3 {
+  margin: 0;
+  font-size: 16px;
+}
